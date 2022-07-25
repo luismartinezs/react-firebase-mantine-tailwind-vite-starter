@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  function isSignedIn() {
+    return request.auth != null;
+  }
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return isSignedIn() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isAdmin == true
+    }
+    match /dataEntries/{entry} {
+      allow get: if isAdmin() || (isSignedIn() && request.auth.uid == resource.data.userUid);
+      allow list: if isAdmin() || (isSignedIn() && request.auth.uid == resource.data.userUid);
+      allow create: if isAdmin() || (isSignedIn() && request.auth.uid == request.resource.data.userUid);
+      allow delete, update: if isAdmin() || (isSignedIn() && request.auth.uid == resource.data.userUid);
+    }
+    match /users/{user} {
+      allow read: if isAdmin() || (isSignedIn() && request.auth.uid == resource.data.uid);
+      allow create: if true;
+      allow delete, update: if isSignedIn() && request.auth.uid == resource.data.uid;
+    }
+  }
+}

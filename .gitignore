@@ -1,0 +1,41 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Vitest
+coverage
+
+# Firebase
+emu-data/*
+firebase-export-*/*
+
+# Firebase admin key
+admin-key-*.json
+.firebase
+
+# Cypress
+cypress.env.json
+serviceAccount.json
+cypress/videos
+
+# Rollup Visualizer
+rollup-bundle-size-stats.html
