@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "playground-project-5d0b5"
-  }
+    "default": "playground-project-5d0b5",
+    "prod": "playground-project-5d0b5"
+  },
+  "targets": {}
 }

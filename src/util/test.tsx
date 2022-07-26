@@ -3,7 +3,7 @@ import type { FC, ReactElement, ReactNode } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
 import { QueryClient, QueryClientProvider, setLogger } from 'react-query';
 import { MemoryRouter, type MemoryRouterProps } from 'react-router-dom';
-import ThemeProvider from '@/components/ThemeProvider';
+import ThemeProvider from '@/providers/ThemeProvider';
 import FirebaseApp from '@/providers/FirebaseApp';
 
 const queryClient = new QueryClient({

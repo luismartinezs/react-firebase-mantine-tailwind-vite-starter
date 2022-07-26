@@ -14,6 +14,7 @@
   - [Issues](#issues)
   - [References](#references)
     - [Firebase](#firebase)
+  - [Dev tasks](#dev-tasks)
 
 ## IMPORTANT NOTE FOR MAINTAINER
 
@@ -76,7 +77,7 @@ Other features:
 - [ ] Transitions: https://reactcommunity.org/react-transition-group
 - [ ] Animations: https://react-spring.dev/
 - [ ] Rich text: [draft-js](https://draftjs.org/)
-
+- [ ] Web3 payments
 
 ## First steps to use this project
 
@@ -95,9 +96,8 @@ Other features:
 - Install Firebase cli version 10.9.2 in your computer and login with it (`firebase login`)
 - Run `firebase init` in the root folder of this project, do not override any files
   - Use the services auth, firestore, functions and hosting, use emulators and accept to download them, and use github actions.
+- Run `firebase use --add` and select the new project. Give it any alias you want.
 - Run `firebase deploy --only firestore:rules`
-- Run this command in the console: `(cd functions && echo NODE_ENV=production > .env && echo NODE_ENV=development > .env.local)`
-- Add an `.env` file and an `.env.local` to `functions/` with a `NODE_ENV` variable set to `product
 - Run locally the app and emulate firebase services
   - Initialize functions project with `(cd functions && pnpm i && pnpm setupEnvVars)`
   - Build functions by running `(cd functions && pnpm build)`
@@ -117,6 +117,7 @@ Other features:
 - Enable firebase app check
   - Follow these instructions [Enable App Check with reCAPTCHA v3 in web apps  |  Firebase Documentation](https://firebase.google.com/docs/app-check/web/recaptcha-provider)
   - Add your public recaptcha v3 site key to `.env.local` and to your github secrets
+- Before going live, you'll have to setup some env variables in your github repo. You can do this via command line following this: [Deploy to live & preview channels via GitHub pull requests  |  Firebase Hosting](https://firebase.google.com/docs/hosting/github-integration)
 - Deploy your app by pushing your main branch to the remote repo
 
 If you want to host with another provider such as Netlify, skip everything related to firebase hosting:
@@ -193,3 +194,18 @@ References:
 
 - Modular setup for firebase app: https://sourcegraph.com/github.com/firebase/firebase-js-sdk/-/blob/e2e/sample-apps/modular.js
 - A similar template: https://github.com/TeXmeijin/vite-react-ts-tailwind-firebase-starter
+
+## Dev tasks
+
+- [ ] Integrate Storybook
+- [ ] Integrate e2e testing environment with cypress
+- [ ] Add script to add new feature (like dataEntries)
+- [ ] Add an example of form component that covers general cases
+- [ ] Add redux and a sample redux slice
+- [ ] Add i18n
+- [ ] Integrate payment with stripe
+- [ ] Integrate payments with eth
+- [ ] Integrate rich text component
+- [ ] Add animations in route changes
+- [ ] Add more auth mechanisms
+- [ ] Improve steps on how to setup github actions
